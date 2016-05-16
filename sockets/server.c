@@ -25,7 +25,7 @@ struct sockaddr_in client_address;
  client_sockfd = accept(server_sockfd,
  (struct sockaddr *)&client_address, &client_len);
  read(client_sockfd, &ch, 1);
-//ch++;
+ch++;
  write(client_sockfd, &ch, 1);
  printf("Mensaje enviado al servidor: %s \n", ch);
 close(client_sockfd);
