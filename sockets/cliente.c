@@ -6,15 +6,16 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-int main()
+int main(int NumArg, char *msj[])
 {
 	int sockfd;
 	int len;
 	struct sockaddr_in address;
 	int result;
-	char ch = 'A';
+	int i;
+	//char ch = 'A';
 	//char *msj = "hola";	
-	char msj[] = "hola";
+	//char msj[] = "hola";
 	/* Crear un socket para el cliente */
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	/* Nombrar el socket, de acuerdo con el server */
@@ -29,7 +30,7 @@ int main()
 	}
 	write(sockfd, msj, 1);
 	read(sockfd, msj, 1);
-	printf("Mensaje enviado al servidor = %s \n", msj);
+for(i=1; i<NumArg;i++)	printf("Mensaje enviado al servidor = %s \n", msj[i]);
 	close(sockfd);
 	exit(0);
 }
